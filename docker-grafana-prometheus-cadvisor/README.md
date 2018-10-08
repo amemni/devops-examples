@@ -31,7 +31,7 @@ docker-compose up -d
 
 ## Useful commands
 
-- You can edit the .env file to change the default values of environment variables, mainly the admin username and password for Grafana, else you can pass values for the environment varibales in the command line before `docker-compose up -d`, example:
+- You can edit the [.env](https://github.com/amemni/devops-examples/blob/master/docker-grafana-prometheus-cadvisor/.env) file to change the default values of environment variables, mainly the admin username and password for Grafana, else you can pass values for the environment varibales in the command line before `docker-compose up -d`, example:
 ```
 ADMIN_USER=admin ADMIN_PASSWORD=admin docker-compose up -d
 amemni@amemni-laptop:~/devops-examples/docker-grafana-prometheus-cadvisor$ ADMIN_USER=admin ADMIN_PASSWORD=admin docker-compose up -d
@@ -166,7 +166,7 @@ If you want to add more dashboards to the demo, make sure to copy a Grafana JSON
 
 ### The ruby program
 
-The program service uses the Dockerfile to build a ruby image and runs the [program.rb](https://github.com/amemni/devops-examples/blob/master/docker-grafana-prometheus-cadvisor/program.rb) script in an infinite loop as defined in [docker-compose.yml](https://github.com/amemni/devops-examples/blob/master/docker-grafana-prometheus-cadvisor/docker-compose.yml) (restart: always). To display STDOUT ouptut from the program container, simply un `docker-compose logs -ft program` (-f for following output, -t for display timestamps), example:
+The program service uses the [Dockerfile](https://github.com/amemni/devops-examples/blob/master/docker-grafana-prometheus-cadvisor/Dockerfile) to build a ruby image and runs the [program.rb](https://github.com/amemni/devops-examples/blob/master/docker-grafana-prometheus-cadvisor/program.rb) script in an infinite loop as defined in [docker-compose.yml](https://github.com/amemni/devops-examples/blob/master/docker-grafana-prometheus-cadvisor/docker-compose.yml) (restart: always). To display STDOUT ouptut from the program container, simply un `docker-compose logs -ft program` (-f for following output, -t for display timestamps), example:
 ```
 amemni@amemni-laptop:~/devops-examples/docker-grafana-prometheus-cadvisor$ docker-compose logs -ft program
 Attaching to dockergrafanaprometheuscadvisor_program_1
